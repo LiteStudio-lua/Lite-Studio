@@ -1,0 +1,25 @@
+-- the crossHair... this thing is very inaccurate... also put it in "starterplayer > StarterPlayerScripts" as a localScript
+
+local player = game.Players.LocalPlayer
+ 
+-- Create a ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "CenterSymbolGui"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+ 
+-- Create a TextLabel
+local symbolLabel = Instance.new("TextLabel")
+symbolLabel.Name = "CenterSymbol"
+symbolLabel.Text = "+" -- The symbol to display
+symbolLabel.Font = Enum.Font.SourceSansBold
+symbolLabel.TextColor3 = Color3.new(1, 1, 1) -- color
+symbolLabel.TextScaled = true -- Adjusts size based on TextLabel size
+symbolLabel.BackgroundTransparency = 1
+symbolLabel.Size = UDim2.new(0, 20, 0, 20) -- Adjust size as needed
+symbolLabel.AnchorPoint = Vector2.new(0.5, 0.5) -- Center the label
+symbolLabel.Position = UDim2.new(0.5, 0, 0.5, 0) -- Middle of the screen
+symbolLabel.Parent = screenGui
+ 
+local uiScale = Instance.new("UIScale")
+uiScale.Parent = symbolLabel

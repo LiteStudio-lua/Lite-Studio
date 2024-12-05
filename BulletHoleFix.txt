@@ -1,0 +1,17 @@
+-- this script clears the map of Bullets holes (bc they dont respawn) PLEASE IF YOU HAVE ANY PARTS NAMMED "Part" RENAME THEM, or dont put the script and deal with it
+
+local Workspace = game:GetService("Workspace")
+local SCAN_INTERVAL = 25
+
+local function deleteMagParts()
+    for _, instance in ipairs(Workspace:GetDescendants()) do
+        if instance:IsA("BasePart") and instance.Name == "Part" then
+            instance:Destroy()
+        end
+    end
+end
+
+while true do
+    deleteMagParts()
+    task.wait(SCAN_INTERVAL)
+end

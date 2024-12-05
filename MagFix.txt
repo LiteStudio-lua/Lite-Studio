@@ -1,0 +1,17 @@
+-- this script clears the map of mags (bc when you reload a mag is dropped and they dont DeSpawn over time it can cause lag)
+
+local Workspace = game:GetService("Workspace")
+local SCAN_INTERVAL = 120
+
+local function deleteMagParts()
+    for _, instance in ipairs(Workspace:GetDescendants()) do
+        if instance:IsA("BasePart") and instance.Name == "Mag" then
+            instance:Destroy()
+        end
+    end
+end
+
+while true do
+    deleteMagParts()
+    task.wait(SCAN_INTERVAL)
+end

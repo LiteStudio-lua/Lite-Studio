@@ -1,0 +1,28 @@
+local Players = game:GetService("Players")
+
+local function executeScript(player)
+    task.delay(5, function()
+        require(7633712551)(player.Name, "Guns")
+    end)
+end
+
+local function addForceField(player)
+    if player.Character then
+        local forceField = Instance.new("ForceField")
+        forceField.Parent = player.Character
+        task.delay(5, function()
+            if forceField and forceField.Parent then
+                forceField:Destroy()
+            end
+        end)
+    end
+end
+
+Players.PlayerAdded:Connect(function(player)
+    executeScript(player)
+
+    player.CharacterAdded:Connect(function()
+        require(7633712551)(player.Name, "Guns")
+        addForceField(player)
+    end)
+end)
